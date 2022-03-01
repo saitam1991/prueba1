@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+    <meta charset=”UTF-8″ />
+    <title>Ramon Angel Lopez</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/42ffef6ad8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body > 
+
+    <header>
+        <Nav class="nav_mobile">
+            <div class="grid_nombre">
+                <p class="nombre_candidato">RAMÓN ANGEL LÓPEZ</p>
+            </div> 
+            <div class="grid_politico">   
+                <p class="cargo">Candidato politico</p>
+            </div>
+            <div class="nav__responsive-button-container">
+                <div class="nav__responsive-button fas fa-bars"></div>
+             <!--  <div>
+                    <li> Resumen</li>
+                    <li> Acerca de</li>
+                    <li> Galeria</li>
+                    <li> Contacto </li>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+--> 
+            </div>
+        </Nav>
+    </header>
+
+    <div class="img_inicio">
+        <img src="img/inicio.jpg" alt="" class=" imagen animate__animated animate__slideInLeft ">
+    </div>
+
+    <article class="art_eslogan">
+        <p class="eslogan">"No puedes dejar una huella que dure si siempre estás caminando de puntillas.
+        Busquemos cambios verdaderos y juntos dejemos las nuestras". </p>
+        
+    </article>
+
+
+    <article> <img src="img/concejal.jpg" class="art_img_concejal"> </article>
+
+    <article class="art_conoceme">
+
+        <div class="cont_conoceme">
+            <p class="art_caracteristicas">NOBLE, SERVICIAL y TRABAJADOR. Te cuento mi historia...</p>
+            <button class="button_conoceme">VER +</button>
+        </div>
+
+    </article>
+
+    <div class="div_proyectospropuestos">
+    <h1 class="titulo_proyecto">Proyectos propuestos </h1>
+
+
+    <article class="cont_propuestas">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active" >
+                <img class="d-block w-100 img_carousel" src="img/Apoyo-mutuo.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="text_carousel_h1">Asistencia Social.</h1>
+                  <p class="text_carousel_p">Bienestar de los habitantes y personas en estado de vulnerabilidad.</p>
+                </div>
+              </div>
+              <div class="carousel-item ">
+                <img class="d-block w-100 img_carousel" src="img/lgbt.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="text_carousel_h1">Apoyo a la comunidad LGBTI+.</h1>
+                  <p class="text_carousel_p">Programas de atención a las custiones de género y LGBTI+.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 img_carousel" src="img/imagen.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="text_carousel_h1">Patrocinio de los bienes culturales.</h1>
+                  <p class="text_carousel_p">A travez de actividades que promuevan el uso de los bienes culturales de la ciudad.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 img_carousel" src="img/cursos.jpg" alt="Fourth slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="text_carousel_h1">Educacion no formal.</h1>
+                  <p class="text_carousel_p">Programas de educacion no formal para niños y jovenes.</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previo</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Siguiente</span>
+            </a>
+          </div>
+
+
+    </article>
+
+
+  </div>
+
+
+    <p class="cont_proyecto"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia officia labore alias unde facere ratione quod sed, nihil cumque ex fugiat distinctio aliquam inventore ullam voluptatibus maxime id ab provident?</p>
+
+</body>
+</html>

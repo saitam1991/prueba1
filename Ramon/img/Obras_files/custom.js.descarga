@@ -1,0 +1,119 @@
+/*
+
+INDEX DE SCRIPTS:
+
+1)REGISTRO SUSCRIPTORES
+2)ENVIO MSJ CONTACTO
+
+*/
+
+//PRELOADER
+//<![CDATA[
+$(window).on('load', function(){                
+
+    //HIDE LOADER
+    //$('div[id="preloader"]').delay(1000).fadeOut();
+    $('div[id="preloader"]').fadeOut();
+
+    //TOP 0
+    $(window).scrollTop(0);
+})
+//]]>
+
+/*$(document).ready(function(){
+	
+	//1)- REGISTRO SUSCRIPTORES
+	$('form[id="form-news"]').on('submit', function(e) {
+		e.preventDefault();
+
+		$('button[id="boton-form-news"]').css('opacity', '0.5');
+		$('button[id="boton-form-news"]').prop('disabled',true);
+
+		$('div[id="news-alert-success"]').fadeOut();
+		$('div[id="news-alert-error"]').fadeOut();
+		
+		$.ajax({
+			type:'post',
+			url:'scripts/suscriptores/news-accion.php',
+   		    data:{
+				email: $('input[name="input-email-news"]').val()
+			},
+			cache:false,
+			success: function(response){
+						//YA EXISTIE
+						if(response == 1){
+							$('div[id="news-alert-error"]').html('¡El correo ya se encuentra registrada!');
+							$('div[id="news-alert-error"]').fadeIn();
+
+							$('button[id="boton-form-news"]').css('opacity', '1');
+							$('button[id="boton-form-news"]').prop('disabled',false);
+						}
+						//OK
+						if(response == 2){
+							$('div[id="news-alert-success"]').html('¡El correo se registró correctamente!');
+							$('div[id="news-alert-success"]').fadeIn();	
+
+							$('input[name="input-email-news"]').fadeOut();
+							$('button[id="boton-form-news"]').fadeOut();												
+						}
+						//ERROR
+						if(response == 3){
+							$('div[id="news-alert-error"]').html('¡Hubo un inconveniente, intente de nuevo!');
+							$('div[id="news-alert-error"]').fadeIn();
+
+							$('button[id="boton-form-news"]').css('opacity', '1');
+							$('button[id="boton-form-news"]').prop('disabled',false);
+						}
+					 }
+	   	});
+		
+	});
+
+	//2)- ENVIO MSJ CONTACTO
+	$('form[id="form-contacto"]').on('submit', function(e) {
+		e.preventDefault();
+
+		$('button[id="boton-form-contacto"]').text('ENVIANDO');
+		$('button[id="boton-form-contacto"]').css('opacity', '0.5');
+		$('button[id="boton-form-contacto"]').prop('disabled',true);
+
+		$('div[id="contacto-alert-success"]').fadeOut();
+		$('div[id="contacto-alert-error"]').fadeOut();
+
+		$.ajax({
+			type:'post',
+			url:'scripts/contacto/contacto-accion.php',
+   		    data:{
+				nombre: $('input[name="input-nombre"]').val(),
+				email: $('input[name="input-email"]').val(),
+				telefono: $('input[name="input-telefono"]').val(),
+				consulta: $('textarea[name="input-consulta"]').val()
+			},
+			cache:false,
+			success: function(response){
+						//OK
+						if(response == 1){
+							$('button[id="boton-form-contacto"]').fadeOut();
+
+							//ESCONDE FORM
+							$('form[id="form-contacto"]').fadeOut();			
+
+							setTimeout(function(){
+                                $('div[id="contacto-alert-success"]').html('¡Tu consulta se ha enviado exitosamente!');
+								$('div[id="contacto-alert-success"]').fadeIn();
+                            }, 500);
+						}
+						//ERROR
+						if(response == 2){
+							$('div[id="contacto-alert-error"]').html('¡Error al enviar consulta! Intentalo nuevamente más tarde.');
+							$('div[id="contacto-alert-error"]').fadeIn();
+
+							$('button[id="boton-form-contacto"]').text('ENVIAR');
+							$('button[id="boton-form-contacto"]').css('opacity', '1');
+							$('button[id="boton-form-contacto"]').prop('disabled',false);
+						}
+					 }
+	   	});
+	});	
+	
+});*/

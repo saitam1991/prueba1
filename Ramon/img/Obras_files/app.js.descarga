@@ -1,0 +1,193 @@
+$(document).ready(function() {
+
+	var responsive_menu = '<div id="menu-resp" class="light-bg closed"><div><div class="search-form"></div><ul class="mt20"></ul></div></div>',
+		weather_info = $('#weather-info').parent().html(),
+		search_form = $('#header-main').find('.search-form').html(),
+		menu_structure = $('#menu-main').find('ul.menu').html();
+
+	$(responsive_menu).insertBefore('#page-container');
+	$('#menu-resp > div > .search-form').prepend(search_form);
+	$('#menu-resp > div').prepend(weather_info);
+	$('#menu-resp > div > ul').append(menu_structure);
+
+	/* Creo y ubico un overlay sobre el page-container */
+		var page_container_overlay = '<div class="overlay"></div>';
+		$('#page-container').prepend(page_container_overlay);
+
+	$(window).resize(function() { /* Si el viewport es > 991 oculto el resp-nav y cambio el icon del toggle */
+		if($(window).width() > 768){
+			/* Reseteo Icono del Toggler */
+			$('#menu-resp-toggler').find('.fa').addClass('fa-bars').removeClass('fa-close');
+
+			/* Reseteo Clases */
+			$('#menu-resp').addClass('closed');
+			$('#header-responsive').removeClass('moved');
+			$('#user-menu-bottom-fixed').removeClass('moved');
+			$('#page-container').removeClass('moved');
+			$('#page-container').children('.overlay').hide();
+		}
+	});
+
+	// RESPONSIVE MENU TOGGLE CLICK EVENT
+	$('#menu-resp-toggler').on('click', 'a', function(e) {
+		e.preventDefault();
+
+		/* Cambio el icono del toggler */
+		$(this).children('.fa').toggleClass('fa-bars');
+		$(this).children('.fa').toggleClass('fa-close');
+
+		/* Modifico clases para animar la apertura del menu */
+		$('#menu-resp').toggleClass('closed');
+		$('#header-responsive').toggleClass('moved');
+		$('#user-menu-bottom-fixed').toggleClass('moved');
+		$('#page-container').toggleClass('moved');
+		$('#page-container').children('.overlay').fadeToggle(200);
+
+	});
+
+	// RESPONSIVE MENU TOGGLE CLICK EVENT PAGE CONTAINER OVERLAY
+	$('#page-container').children('.overlay').on('click', function() {
+		/* Cambio el icono del toggler */
+		$('#menu-resp-toggler').find('.fa').toggleClass('fa-bars');
+		$('#menu-resp-toggler').find('.fa').toggleClass('fa-close');
+
+		/* Modifico clases para animar la apertura del menu */
+		$('#menu-resp').toggleClass('closed');
+		$('#header-responsive').toggleClass('moved');
+		$('#user-menu-bottom-fixed').toggleClass('moved');
+		$('#page-container').toggleClass('moved');
+		$('#page-container').children('.overlay').fadeToggle(200);
+	});
+
+	// RESPONSIVE MENU SUBMENU
+	$('#menu-resp').on('click', 'li.has-submenu > a', function(e) {
+		e.preventDefault();
+		$(this).next('.submenu').slideToggle(300);
+	});
+
+	// SUBMENU
+	$('#menu-main').find('li.has-submenu').on('mouseenter',function() {
+		if(!$(this).hasClass('active')) {
+			$(this).children('a').css({
+				'background-color' : '#454545',
+				'color' : '#fff'
+			});
+		}
+		$(this).closest('li').find('ul.submenu').fadeIn(200);
+	}).on('mouseleave', function() {
+		if(!$(this).hasClass('active')) {
+			$(this).children('a').css({
+				'background-color' : '#5fad43',
+				'color' : '#fff'
+			});
+		}
+		$(this).closest('li').find('ul.submenu').fadeOut(200);
+	});
+
+	// SECCION DEPENDENCIAS: ACCIONES DEL TOGGLE DEL LISTADO DE DEPENDENCIAS
+	if($(window).width() <= 550){
+		/* Oculto el listado de dependencias que por defecto aparece abierto */
+		$('#dependencias-listado-container').addClass('closed');
+	}
+	$('#open-listings').on('click', function(){
+		$('#dependencias-map-container').removeClass('moved');
+		$('#dependencias-listado-container').removeClass('closed');
+	});
+	$('#close-listings').on('click', function(){
+		$('#dependencias-map-container').addClass('moved');
+		$('#dependencias-listado-container').addClass('closed');
+	});
+
+	// ACCORDIONS
+	$('.accordion').find('li.title').each(function() {
+		if($(this).hasClass('active')) {
+			$(this).next('.content').show();
+		}
+	})
+	$('.accordion').find('li.title').on('click', function() {
+		$(this).toggleClass('active');
+		$(this).next('.content').slideToggle(300);
+		$(this).next('.content').siblings('.content').slideUp(300);
+		$(this).siblings('.title').removeClass('active');
+	});
+
+	// INICIALIZAR TOOLTIPS
+	$('[data-toggle="tooltip"]').tooltip();
+
+	// GO TO TOP BUTTON
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 800) {
+			$('#gototopbutton').addClass('active');
+		} else {
+			$('#gototopbutton').removeClass('active');
+		}
+	});
+	
+	// Evento Click de Go to top button
+	$('#gototopbutton').on('click', function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+
+	// User Menu Topbar
+	$('#user-access-topbar .user-menu > a').on('click', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(this).toggleClass('active');
+		$(this).next('ul').toggleClass('active');
+	});
+	$(window).click(function() {
+        $('#user-access-topbar .user-menu > ul, #user-access-topbar .user-menu > a').removeClass('active');
+    });
+
+    // Radio Buttons Custom
+    $('ul.rbtn-custom').on('click', 'li', function(){
+    	$(this).addClass('active').siblings('li').removeClass('active');
+    	$(this).children('input').prop('checked', true);
+	});
+
+	// CheckBoxes Custom
+    $('ul.chbx-custom > li').on('click', 'div', function(){
+    	if(!$(this).closest('ul.chbx-custom').hasClass('chbx-custom-disabled')) {
+    		if(!$(this).hasClass('active')) {
+
+	    		$(this).addClass('active');
+	    		$(this).find('input').prop('checked', true);
+	    		$(this).next().find('li').addClass('active');
+	    		$(this).next().find('input').prop('checked', true);
+
+	    	} else {
+
+	    		$(this).removeClass('active');
+	    		$(this).find('input').prop('checked', false);
+	    		$(this).next().find('li').removeClass('active');
+	    		$(this).next().find('input').prop('checked', false);
+
+	    	}
+    	}
+	});
+	$('ul.chbx-custom ul').on('click', 'li', function(){
+    	if(!$(this).hasClass('active')) {
+
+    		$(this).addClass('active');
+    		$(this).find('input').prop('checked', true);
+
+    		if(!$(this).parent().prev('div').hasClass('active')) {
+    			$(this).parent().prev('div').addClass('active');
+    			$(this).parent().prev('div').find('input').prop('checked', true);
+    		}
+
+    	} else {
+
+    		$(this).removeClass('active');
+    		$(this).find('input').prop('checked', false);
+
+    		if(!$(this).parent().find('li.active').length) {
+				$(this).parent().prev('div').removeClass('active');
+				$(this).parent().prev('div').find('input').prop('checked', false);
+			}
+
+    	}
+	});
+
+});

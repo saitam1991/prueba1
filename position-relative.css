@@ -1,0 +1,41 @@
+
+*{
+
+    font-family: 'Pattaya', sans-serif;
+    font-size: 1.4rem;
+
+}
+
+div {
+
+    width: 120px;
+    height: 120px;
+    display:block;
+    background: yellow;
+    
+}
+
+.caja-1{
+    background: orange;
+    
+}
+
+.caja-2{
+    background: green;
+    top:50px;
+    left: 50px;
+    position: relative;
+    z-index: 120;
+}
+
+.caja-3{
+
+    background: lightblue;
+    position: relative;
+    top: -50px;
+    z-index: 10;
+}
+
+.caja-4{
+    background: yellow;
+}
